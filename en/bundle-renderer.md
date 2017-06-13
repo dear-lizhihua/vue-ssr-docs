@@ -47,7 +47,7 @@ server.get('*', (req, res) => {
 })
 ```
 
-bundle renderer 在调用 `renderToString` 时，它将自动执行「由 bundle 创建的应用程序实例」所导出的函数，然后渲染它。
+bundle renderer 在调用 `renderToString` 时，它将自动执行「由 bundle 创建的应用程序实例」所导出的函数（传入`上下文`作为参数），然后渲染它。
 
 注意，推荐将 `runInNewContext` 选项设置为 `false` 或 `'once'`。更多细节请查看 [API 参考](./api.md#runinnewcontext)。
 
