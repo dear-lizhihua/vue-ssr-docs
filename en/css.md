@@ -22,7 +22,7 @@
 
 ## 启用 CSS 提取
 
-要从 `*.vue` 文件中提取 CSS，可以使用 `vue-loader` 的 `extractCSS` 选项（需要 `vue-loader>=12.0.0`）
+要从 `*.vue` 文件中提取 CSS，可以使用 `vue-loader` 的 `extractCSS` 选项（需要 `vue-loader` 12.0.0+）
 
 ``` js
 // webpack.config.js

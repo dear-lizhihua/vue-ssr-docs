@@ -151,7 +151,7 @@ const renderer = createBundleRenderer(serverBundle, { ... })
   - 2.2.0+
   - 只用于 `createBundleRenderer`
 
-  显式地声明 server bundle 的基本目录(base directory)，以从 `node_modules` 解析依赖模块。只有在所生成的 bundle 文件与外部的 NPM 依赖模块放置在不同位置，或者 `vue-server-renderer` 是通过 npm-linked  链接当前项目中时，才需要配置。
+  显式地声明 server bundle 的基本目录(base directory)，以从 `node_modules` 解析依赖模块。只有在所生成的 bundle 文件与外部的 NPM 依赖模块放置在不同位置，或者 `vue-server-renderer` 是通过 NPM-linked  链接当前项目中时，才需要配置。
 
 - #### `cache`
 
@@ -177,7 +177,7 @@ const renderer = createBundleRenderer(serverBundle, { ... })
   })
   ```
 
-  请注意，缓存对象应至少要实现 `get` 和 `set`。此外，如果 `get` 和 `has` 接收第二个参数作为回调，那 `get` 和 `has` 也可以是可选的异步函数。这允许缓存使用异步 API，例如，一个 redis 客户端：
+  请注意，缓存对象应至少要实现 `get` 和 `set`。此外，如果 `get` 和 `has` 接收第二个参数作为回调，那 `get` 和 `has` 也可以是可选的异步函数。这允许缓存使用异步 API，例如，一个 Redis 客户端：
 
   ``` js
   const renderer = createRenderer({
