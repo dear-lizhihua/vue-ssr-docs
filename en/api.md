@@ -26,7 +26,7 @@ const renderer = createBundleRenderer(serverBundle, { ... })
 
 - JavaScript 代码字符串（不推荐）。
 
-更多细节请查看 [Server Bundle 指引](./bundle-renderer.md) 和[构建配置](./build-config.md)。
+更多细节请查看 [Server Bundle 指引](./bundle-renderer.md) 和 [构建配置](./build-config.md)。
 
 ## `Class: Renderer`
 
@@ -46,7 +46,7 @@ const renderer = createBundleRenderer(serverBundle, { ... })
 
 - #### `bundleRenderer.renderToStream([context])`
 
-  将 bundle 渲染为一个 Node.js 流(stream). 上下文对象(context object)可选。更多细节请查看[流式渲染](./streaming.md)。
+  将 bundle 渲染为一个 Node.js 流(stream)。上下文对象(context object)可选。更多细节请查看[流式渲染](./streaming.md)。
 
 ## Renderer 选项
 
@@ -83,7 +83,7 @@ const renderer = createBundleRenderer(serverBundle, { ... })
 
   - 2.3.0+
 
-  生成由 `vue-server-renderer/client-plugin` 生成的客户端构建 manifest 对象(client build manifest object)。此对象包含了 webpack 整个构建过程的信息，从而可以让 bundle renderer 自动推导需要在 HTML 模板中注入的内容。更多详细信息，请查看[生成 clientManifest](./build-config.md#generating-clientmanifest)。
+  通过此选项提供一个由 `vue-server-renderer/client-plugin` 生成的客户端构建 manifest 对象(client build manifest object)。此对象包含了 webpack 整个构建过程的信息，从而可以让 bundle renderer 自动推导需要在 HTML 模板中注入的内容。更多详细信息，请查看[生成 clientManifest](./build-config.md#generating-clientmanifest)。
 
 - #### `inject`
 

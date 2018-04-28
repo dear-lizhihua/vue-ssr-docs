@@ -3,7 +3,7 @@
 管理 CSS 的推荐方法是简单地使用 `*.vue` 单个文件组件内的 `<style>`，它提供：
 
 - 与 HTML 并列同级，组件作用域 CSS
-- 能够使用预处理器(pre-processor)或 POSTCSS
+- 能够使用预处理器(pre-processor)或 PostCSS
 - 开发过程中热重载(hot-reload)
 
 更重要的是，`vue-style-loader`（`vue-loader` 内部使用的 loader），具备一些服务器端渲染的特殊功能：

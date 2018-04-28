@@ -94,7 +94,6 @@ export default {
     // 触发 action 后，会返回 Promise
     return store.dispatch('fetchItem', route.params.id)
   },
-
   computed: {
     // 从 store 的 state 对象中的获取 item。
     item () {
@@ -236,7 +235,7 @@ if (window.__INITIAL_STATE__) {
   })
   ```
 
-这两种策略是根本上不同的用户体验决策，应该根据你创建的应用程序的实际使用场景进行挑选。但是无论你选择哪种策略，当路由组件重用（同一路由，但是 params 或 query 已更改，例如，从 `user/1` 到 `user/2`）时，也应该调用`asyncData`函数。我们也可以通过纯客户端(client-only)的全局 mixin 来处理这个问题：
+这两种策略是根本上不同的用户体验决策，应该根据你创建的应用程序的实际使用场景进行挑选。但是无论你选择哪种策略，当路由组件重用（同一路由，但是 params 或 query 已更改，例如，从 `user/1` 到 `user/2`）时，也应该调用 `asyncData` 函数。我们也可以通过纯客户端(client-only)的全局 mixin 来处理这个问题：
 
 ``` js
 Vue.mixin({

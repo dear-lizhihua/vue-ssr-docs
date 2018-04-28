@@ -49,7 +49,7 @@ module.exports = merge(baseConfig, {
 })
 ```
 
-在生成 `vue-ssr-server-bundle.json `之后，只需将文件路径传递给 `createBundleRenderer`：
+在生成 `vue-ssr-server-bundle.json` 之后，只需将文件路径传递给 `createBundleRenderer`：
 
 ``` js
 const { createBundleRenderer } = require('vue-server-renderer')
@@ -58,7 +58,7 @@ const renderer = createBundleRenderer('/path/to/vue-ssr-server-bundle.json', {
 })
 ```
 
-又或者，你还可以将 bundle 作为对象传递给 `createBundleRenderer`。这对开发过程中的热重新是很有用的 - 具体请查看 HackerNews demo 的[参考设置](https://github.com/vuejs/vue-hackernews-2.0/blob/master/build/setup-dev-server.js)。
+又或者，你还可以将 bundle 作为对象传递给 `createBundleRenderer`。这对开发过程中的热重载是很有用的 - 具体请查看 HackerNews demo 的[参考设置](https://github.com/vuejs/vue-hackernews-2.0/blob/master/build/setup-dev-server.js)。
 
 ### 扩展说明(Externals Caveats)
 
@@ -74,7 +74,7 @@ const renderer = createBundleRenderer('/path/to/vue-ssr-server-bundle.json', {
 
 > 需要版本 2.3.0+
 
-除了 server bundle 之外，我们还可以生成客户端构建清单(client build manifest)。使用客户端清单(client manifest)和服务器 bundle(server bundle)，renderer 现在具有了*服务器*和*客户端*的构建信息，因此它可以自动推断和注入[资源预加载 / 数据预取指令(preload / prefetch directive)](https://css-tricks.com/prefetching-preloading-prebrowsing/)，以及 css 链接 / script 标签到所渲染的 HTML。
+除了 server bundle 之外，我们还可以生成客户端构建清单(client build manifest)。使用客户端清单(client manifest)和服务器 bundle(server bundle)，renderer 现在具有了*服务器和客户端*的构建信息，因此它可以自动推断和注入[资源预加载 / 数据预取指令(preload / prefetch directive)](https://css-tricks.com/prefetching-preloading-prebrowsing/)，以及 css 链接 / script 标签到所渲染的 HTML。
 
 好处是双重的：
 

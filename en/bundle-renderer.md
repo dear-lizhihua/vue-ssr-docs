@@ -8,7 +8,7 @@
 const createApp = require('/path/to/built-server-bundle.js')
 ```
 
-这是理所应当的，然而在每次编辑过应用程序源代码之后，都必须停止并重启服务。这在开发过程中会影响线上生产环境运行。此外，Node.js 本身不支持 source map。
+这是理所应当的，然而在每次编辑过应用程序源代码之后，都必须停止并重启服务。这在开发过程中会影响开发效率。此外，Node.js 本身不支持 source map。
 
 ## 传入 BundleRenderer
 
