@@ -30,23 +30,27 @@ const renderer = createBundleRenderer(serverBundle, { ... })
 
 ## `Class: Renderer`
 
-- #### `renderer.renderToString(vm[, context], callback)`
+- #### `renderer.renderToString(vm[, context, callback]): ?Promise<string>`
 
   将 Vue 实例渲染为字符串。上下文对象(context object)可选。回调函数是典型的 Node.js 风格回调，其中第一个参数是可能抛出的错误，第二个参数是渲染完毕的字符串。
 
-- #### `renderer.renderToStream(vm[, context])`
+  在 2.5.0+ 版本中，此 callback 回调函数是可选项。在不传递 callback 时，此方法返回一个 Promise 对象，在其  resolve 后返回最终渲染的 HTML。
 
-  将 Vue 实例渲染为一个 Node.js 流(stream)。上下文对象(context object)可选。更多细节请查看[流式渲染](./streaming.md)。
+- #### `renderer.renderToStream(vm[, context]): stream.Readable`
+
+  将 Vue 实例渲染为一个 [Node.js 可读流](https://nodejs.org/dist/latest-v8.x/docs/api/stream.html#stream_readable_streams)。上下文对象(context object)可选。更多细节请查看[流式渲染](./streaming.md)。
 
 ## `Class: BundleRenderer`
 
-- #### `bundleRenderer.renderToString([context, ]callback)`
+- #### `bundleRenderer.renderToString([context, callback]): ?Promise<string>`
 
   将 bundle 渲染为字符串。上下文对象(context object)可选。回调是一个典型的 Node.js 风格回调，其中第一个参数是可能抛出的错误，第二个参数是渲染完毕的字符串。
 
-- #### `bundleRenderer.renderToStream([context])`
+  在 2.5.0+ 版本中，此 callback 回调函数是可选项。在不传递 callback 时，此方法返回一个 Promise 对象，在其  resolve 后返回最终渲染的 HTML。
 
-  将 bundle 渲染为一个 Node.js 流(stream)。上下文对象(context object)可选。更多细节请查看[流式渲染](./streaming.md)。
+- #### `bundleRenderer.renderToStream([context]): stream.Readable`
+
+  将 bundle 渲染为一个 [Node.js 可读流](https://nodejs.org/dist/latest-v8.x/docs/api/stream.html#stream_readable_streams)。上下文对象(context object)可选。更多细节请查看[流式渲染](./streaming.md)。
 
 ## Renderer 选项
 
@@ -66,6 +70,8 @@ const renderer = createBundleRenderer(serverBundle, { ... })
   - `context.styles`：（字符串）内联 CSS，将以 style 标签的形式注入到页面头部。注意，如过你使用了 `vue-loader` + `vue-style-loader` 来处理组件 CSS，此属性会在构建过程中被自动生成。
 
   - `context.state`：（对象）初始 Vuex store 状态，将以 `window.__INITIAL_STATE__` 的形式内联到页面。内联的 JSON 将使用 [serialize-javascript](https://github.com/yahoo/serialize-javascript)  自动清理，以防止 XSS 攻击。
+
+    在 2.5.0+ 版本中，嵌入式 script 也可以也可以在生产模式(production mode)下自行移除。
 
   此外，当提供 `clientManifest` 时，模板会自动注入以下内容：
 
@@ -124,6 +130,14 @@ const renderer = createBundleRenderer(serverBundle, { ... })
     }
   })
   ```
+
+- #### `shouldPrefetch`
+
+  - 2.5.0+
+
+  一个函数，用来控制对于哪些文件，是需要生成 `<link rel="prefetch">` 资源提示。
+
+  默认情况下，异步 chunk 中的所有资源都将被预取，因为这是低优先级指令; 然而，为了更好地控制带宽使用情况，你也可以自定义要预取的资源。此选项具有与 `shouldPreload` 相同的函数签名。
 
 - #### `runInNewContext`
 

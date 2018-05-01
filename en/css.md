@@ -85,7 +85,7 @@ module.exports = {
 
 1. 在服务器端构建过程中，不应该外置化提取。
 
-2. 如果使用 CSS 提取 + 使用 `CommonsChunkPlugin` 插件提取 vendor，在 `extract-text-webpack-plugin` 提取 CSS 到 vendor chunk 时将遇到问题。为了应对这个问题，请避免在 vendor chunk 中包含 CSS 文件。客户端 webpack 配置示例如下：
+2. 在使用 CSS 提取 + 使用 `CommonsChunkPlugin` 插件提取 vendor 时，如果提取的 CSS 位于提取的 vendor chunk 之中，`extract-text-webpack-plugin` 会遇到问题。为了解决这个问题，请避免在 vendor chunk 中包含 CSS 文件。客户端 webpack 配置示例如下：
 
   ``` js
   module.exports = {

@@ -32,6 +32,13 @@ renderer.renderToString(app, (err, html) => {
   console.log(html)
   // => <div data-server-rendered="true">Hello World</div>
 })
+
+// 在 2.5.0+，如果传入回调函数，则会返回 Promise：
+renderer.renderToString(app).then(html => {
+  console.log(html)
+}).catch(err => {
+  console.error(err)
+})
 ```
 
 ## 与服务器集成

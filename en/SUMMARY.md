@@ -10,6 +10,7 @@
 - [Head 管理](head.md)
 - [缓存](caching.md)
 - [流式渲染](streaming.md)
+- [在非 Node.js 环境下使用](non-node.md)
 - [API 参考](api.md)
   - [createRenderer](api.md#createrendereroptions)
   - [createBundleRenderer](api.md#createbundlerendererbundle-options)
